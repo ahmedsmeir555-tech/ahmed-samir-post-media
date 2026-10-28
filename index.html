@@ -1,1 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
 
+  <title>Ahmed Samir | Post Media</title>
+
+  <meta name="description" content="أحمد سمير - Post Media. صناعة الفيديو والإعلانات والهوية البصرية باستخدام الإبداع والذكاء الاصطناعي.">
+
+  <style>
+    :root {
+      --bg: #071426;
+      --panel: #0d2038;
+      --blue: #1769ff;
+      --gold: #d8b46a;
+      --white: #f7f8fc;
+      --muted: #a9b5c8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.9;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 20, 38, .96);
+      border-bottom: 1px solid rgba(216, 180, 106, .2);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: bold;
+      color: var(--gold);
+      direction: ltr;
+      text-align: right;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 75px 0;
+      background:
+        radial-gradient(ellipse at 15% 25%,
+        rgba(23, 105, 255, .20), transparent 55%),
+        radial-gradient(ellipse at 85% 80%,
+        rgba(216, 180, 106, .10), transparent 45%);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(216, 180, 106, .5);
+      color: var(--gold);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(35px, 7vw, 68px);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    h1 strong {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #071426;
+    }
+
+    .btn-secondary {
+      border: 1px solid #53647d;
+      color: var(--white);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading small {
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 5vw, 40px);
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 650px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+      padding: 25px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--gold);
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about {
+      background: #0a192d;
+    }
+
+    .about-box {
+      border-right: 3px solid var(--gold);
+      padding: 10px 25px;
+      max-width: 800px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-top: 15px;
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 45px 25px;
+      background: linear-gradient(135deg, #102746, #0b1a30);
+      border: 1px solid rgba(216,180,106,.3);
+      border-radius: 18px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(25px, 5vw, 38px);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 530px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+
+    @media (max-width: 380px) {
+      nav {
+        align-items: flex-start;
+        padding: 15px 0;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">
+          AHMED SAMIR
+          <span>POST MEDIA</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home">الرئيسية</a>
+          <a href="#services">خدماتنا</a>
+          <a href="#projects">أعمالنا</a>
+          <a href="#contact">تواصل معنا</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <span class="badge">
+            الإبداع × التكنولوجيا × التأثير
+          </span>
+
+          <h1>
+            المستقبل يُصنع <strong>بصورة</strong>
+          </h1>
+
+          <p>
+            أنا أحمد سمير، مؤسس POST MEDIA.
+            أساعد العلامات التجارية وصنّاع المحتوى على
+            تحويل الأفكار إلى تجارب بصرية مؤثرة،
+            باستخدام الذكاء الاصطناعي والإعلان
+            والإخراج وصناعة الفيديو.
+          </p>
+
+          <div class="buttons">
+            <a href="#services" class="btn btn-primary">
+              اكتشف خدماتنا
+            </a>
+
+            <a href="#projects" class="btn btn-secondary">
+              استكشف أعمالنا
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>WHAT WE DO</small>
+          <h2>خدماتنا</h2>
+          <p>
+            حلول إبداعية تجمع بين قوة الفكرة
+            وأحدث تقنيات الإنتاج الرقمي.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="icon">🎬</div>
+            <h3>إنتاج الفيديو</h3>
+            <p>
+              صناعة فيديوهات إعلانية وسينمائية
+              تحوّل الأفكار إلى مشاهد لا تُنسى.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🤖</div>
+            <h3>الذكاء الاصطناعي</h3>
+            <p>
+              توظيف أدوات الذكاء الاصطناعي
+              في صناعة الصور والفيديوهات
+              والتجارب البصرية المبتكرة.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📢</div>
+            <h3>الدعاية والإعلان</h3>
+            <p>
+              أفكار إعلانية وهوية بصرية
+              تساعد العلامات التجارية
+              على الوصول إلى جمهورها.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎥</div>
+            <h3>الإخراج الإبداعي</h3>
+            <p>
+              تحويل الفكرة إلى قصة بصرية
+              متكاملة من التصور إلى المشهد النهائي.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🌐</div>
+            <h3>العوالم الافتراضية</h3>
+            <p>
+              استكشاف العوالم الرقمية
+              والتجارب الافتراضية وأساليب
+              التواصل المستقبلية.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🧠</div>
+            <h3>الثقافة الرقمية</h3>
+            <p>
+              محتوى بصري يناقش علاقتنا
+              بالتكنولوجيا والذكاء الاصطناعي
+              وتأثير العالم الرقمي في حياتنا.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>ABOUT POST MEDIA</small>
+          <h2>من نحن؟</h2>
+        </div>
+
+        <div class="about-box">
+          <h3>
+            نفهم العالم الرقمي، ثم نصنعه بصريًا.
+          </h3>
+
+          <p>
+            POST MEDIA علامة إبداعية تهتم
+            بصناعة الفيديو والإعلانات والمحتوى الرقمي.
+            نؤمن أن الصورة ليست مجرد شكل جميل،
+            بل وسيلة لسرد القصص وإيصال الأفكار
+            وصناعة تأثير حقيقي.
+          </p>
+
+          <p>
+            رؤيتنا هي الجمع بين الإبداع الإنساني
+            والتكنولوجيا الحديثة لتقديم محتوى
+            مختلف يحمل فكرة ورسالة.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>OUR CREATIVE WORLD</small>
+          <h2>مجالات أعمالنا</h2>
+          <p>
+            مساحات إبداعية لمشروعات تجمع
+            بين الخيال والتكنولوجيا والرسالة.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="icon">✨</div>
+            <h3>إعلانات الذكاء الاصطناعي</h3>
+            <p>
+              أفكار إعلانية تتحول إلى
+              مشاهد بصرية مبتكرة.
+            </p>
+            <span class="project-label">
+              فكرة · تصميم · إنتاج
+            </span>
+          </article>
+
+          <article class="card">
+            <div class="icon">🏛️</div>
+            <h3>مصر بين الماضي والمستقبل</h3>
+            <p>
+              قصص تستلهم الحضارة المصرية
+              وتعيد تقديمها برؤية رقمية وسينمائية.
+            </p>
+            <span class="project-label">
+              تاريخ · خيال · إخراج
+            </span>
+          </article>
+
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>الوعي الرقمي</h3>
+            <p>
+              أفلام ومحتوى بصري يناقش
+              تأثير التكنولوجيا في الإنسان والمجتمع.
+            </p>
+            <span class="project-label">
+              بحث · قصة · توعية
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+          <h2>لديك فكرة تستحق أن تُرى؟</h2>
+
+          <p>
+            لنحوّل فكرتك إلى تجربة بصرية مميزة.
+            ابدأ بتحديد مشروعك والخدمة التي تحتاج إليها.
+          </p>
+
+          <a href="mailto:"
+             class="btn btn-primary"
+             onclick="alert('أضف بريدك الإلكتروني في الكود لتفعيل التواصل المباشر.'); return false;">
+            ابدأ مشروعك
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>AHMED SAMIR — POST MEDIA</strong>
+      <p>
+        Transforming Ideas Into Visual Impact.
+      </p>
+      <p>
+        جميع الحقوق محفوظة © <span id="year"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
